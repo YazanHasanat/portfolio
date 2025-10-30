@@ -4,7 +4,7 @@ import { Float, OrbitControls, Points, PointMaterial } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 
 function SparkleField() {
-  const ref = useRef<any>();
+  const ref =  useRef<any>(null);
   const positions = useMemo(() => {
     const count = 1200;
     const arr = new Float32Array(count * 3);
@@ -25,7 +25,7 @@ function SparkleField() {
 }
 
 function Knot() {
-  const ref = useRef<any>();
+  const ref =  useRef<any>(null);
   useFrame((_, delta) => {
     if (!ref.current) return;
     ref.current.rotation.x += delta * 0.25;
