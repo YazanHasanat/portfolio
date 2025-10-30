@@ -4,8 +4,9 @@ import { Float, Points, PointMaterial, Stars } from "@react-three/drei";
 import { useMemo, useRef, useState, useEffect } from "react";
 
 function CodeParticles({ mouse, pulse }: { mouse: { x: number; y: number }; pulse: { v: number } }) {
-  const ref = useRef<any>();
-  const materialRef = useRef<any>();
+  const ref = useRef<any>(null);
+
+  const materialRef =  useRef<any>(null);
   const positions = useMemo(() => {
     const count = 1500;
     const arr = new Float32Array(count * 3);
