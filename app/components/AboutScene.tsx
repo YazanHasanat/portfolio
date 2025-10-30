@@ -24,6 +24,7 @@ function SparkleField() {
   );
 }
 
+
 function Knot() {
   const ref =  useRef<any>(null);
   useFrame((_, delta) => {
