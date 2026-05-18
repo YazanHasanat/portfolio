@@ -116,6 +116,7 @@ export default function ProjectsSection() {
               </div>
             </article>
           </Reveal>
+          
           <Reveal delay={240}>
             <article className="group relative rounded-3xl overflow-hidden">
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-cyan-400/20 via-blue-400/10 to-purple-400/20 blur-2xl"></div>
