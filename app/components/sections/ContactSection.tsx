@@ -1,36 +1,17 @@
 import Reveal from "../Reveal";
-import SectionAccents from "../SectionAccents";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative py-24 text-white">
-      <SectionAccents variant="teal" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl sm:text-5xl font-extrabold"> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Contact</span></h2>
-        <p className="mt-3 text-gray-300">Let’s build something great. Reach out and I’ll reply quickly.</p>
+    <section id="contact" className="contact-section">
+      <div className="section-shell">
         <Reveal>
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <a href="mailto:yazanhassanat@gmail.com" className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition-colors block">
-              <div className="text-sm text-gray-400">Email</div>
-              <div className="mt-1 font-semibold text-white break-all">yazanhassanat@gmail.com</div>
-            </a>
-            <a href="tel:+962796368214" className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition-colors block">
-              <div className="text-sm text-gray-400">Phone</div>
-              <div className="mt-1 font-semibold text-white">+962 7 9636 8214</div>
-            </a>
-            <a href="https://www.linkedin.com/in/yazanalhasanat/" target="_blank" className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition-colors block">
-              <div className="text-sm text-gray-400">LinkedIn</div>
-              <div className="mt-1 font-semibold text-white">/in/yazanalhasanat</div>
-            </a>
-            <a href="https://github.com/YazanHasanat" target="_blank" className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition-colors block">
-              <div className="text-sm text-gray-400">GitHub</div>
-              <div className="mt-1 font-semibold text-white">github.com/YazanHasanat</div>
-            </a>
+          <div className="contact-grid">
+            <div><span className="section-kicker">04 / CONTACT</span><h2>Have a useful idea?<br /><em>Let&apos;s build it.</em></h2></div>
+            <div className="contact-copy"><p>I&apos;m open to product-focused full-time roles, freelance projects, and conversations about thoughtful web experiences.</p><a className="email-link" href="mailto:yazanhassanat@gmail.com">yazanhassanat@gmail.com <span>↗</span></a><div className="social-links"><a href="https://www.linkedin.com/in/yazanalhasanat/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/YazanHasanat" target="_blank" rel="noreferrer">GitHub</a><a href="tel:+962796368214">+962 7 9636 8214</a></div></div>
           </div>
         </Reveal>
+        <footer><span>© {new Date().getFullYear()} Yazan Alhassanat</span><span>Designed & built with intent.</span><a href="#home">Back to top ↑</a></footer>
       </div>
     </section>
   );
 }
-
-

@@ -1,30 +1,27 @@
-import AboutScene from "../AboutScene";
 import Reveal from "../Reveal";
-import SectionAccents from "../SectionAccents";
+
+const groups = [
+  { number: "01", title: "Frontend", text: "React, Next.js, TypeScript, JavaScript, HTML, CSS, Material UI, responsive design" },
+  { number: "02", title: "Backend", text: "Node.js, Express.js, RESTful APIs, authentication, JWT, API integration" },
+  { number: "03", title: "Data & delivery", text: "MongoDB, PostgreSQL, Git, GitHub, Postman, Vercel, Render, Cloudinary" },
+];
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-24 text-white">
-      <SectionAccents variant="purple" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal>
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-extrabold">About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Me</span></h2>
-              <p className="mt-5 text-gray-300 text-lg leading-relaxed">I’m a passionate Full Stack Developer with hands-on experience in building modern, scalable web applications using React, Next.js, Node.js, Express, MongoDB, and PostgreSQL. I enjoy turning ideas into real products with clean code, efficient APIs, and responsive design.
-              </p><p className="mt-5 text-gray-300 text-lg leading-relaxed">I’ve worked on both solo and team projects, developing complete e-commerce platforms with features like authentication, Stripe payments, and admin dashboards. I value collaboration, continuous learning, and writing code that solves real problems and delivers great user experiences.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={150}>
-            <div>
-              <AboutScene />
-            </div>
-          </Reveal>
+    <section id="about" className="content-section section-shell">
+      <Reveal>
+        <div className="section-heading section-heading--split">
+          <div><span className="section-kicker">01 / ABOUT</span><h2>Engineering with the user in mind.</h2></div>
+          <p>I build interactive web applications, educational platforms, and content management systems. My work sits between thoughtful interface design and dependable backend engineering, with accessibility and performance treated as product requirements.</p>
         </div>
+      </Reveal>
+      <div className="skill-grid">
+        {groups.map((group, index) => (
+          <Reveal key={group.title} delay={index * 90}>
+            <article className="skill-card"><span>{group.number}</span><h3>{group.title}</h3><p>{group.text}</p></article>
+          </Reveal>
+        ))}
       </div>
     </section>
   );
 }
-
-

@@ -1,43 +1,16 @@
-'use client';
-import { useEffect, useRef, useState } from 'react';
+"use client";
 
-type Props = {
-  children: React.ReactNode;
-  delay?: number;
-};
+import { useEffect, useRef, useState } from "react";
 
-export default function Reveal({ children, delay = 0 }: Props) {
-  const ref = useRef<HTMLDivElement | null>(null);
+export default function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => setVisible(true), delay);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    observer.observe(el);
+    const element = ref.current;
+    if (!element) return;
+    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } }, { threshold: 0.1 });
+    observer.observe(element);
     return () => observer.disconnect();
-  }, [delay]);
-
-  return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ease-out will-change-transform ${
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-      }`}
-    >
-      {children}
-    </div>
-  );
+  }, []);
+  return <div ref={ref} className={`reveal ${visible ? "reveal--visible" : ""}`} style={{ transitionDelay: `${delay}ms` }}>{children}</div>;
 }
-
-

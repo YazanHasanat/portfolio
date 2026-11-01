@@ -1,37 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Background3DClient from "./components/Background3DClient";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import GlobalEffects from "./components/GlobalEffects";
 
 export const metadata: Metadata = {
-  title: "Yazan Al-Hassanat",
-  description: "Yazan Al-Hassanat's Portfolio",
+  title: "Yazan Alhassanat | Full-Stack Developer",
+  description: "Portfolio of Yazan Alhassanat, a full-stack developer building responsive web applications, educational platforms, and content management systems.",
+  keywords: ["Yazan Alhassanat", "Full-Stack Developer", "React Developer", "Next.js Developer", "Jordan"],
+  openGraph: {
+    title: "Yazan Alhassanat | Full-Stack Developer",
+    description: "Selected work, experience, and skills of Yazan Alhassanat.",
+    type: "website",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
-        <Background3DClient />
-        {children}
-      </body>
+      <body><GlobalEffects />{children}</body>
     </html>
   );
 }
